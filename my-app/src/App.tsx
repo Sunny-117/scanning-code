@@ -1,8 +1,11 @@
 import React from 'react'
+import { ScannerCode } from './ScannerCode'
 
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <ScannerCode />
+    </div>
   )
 }
 

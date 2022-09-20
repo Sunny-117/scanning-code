@@ -1,6 +1,5 @@
 
-import { Button, Radio, Checkbox, Form, Input } from 'antd';
-
+import { Button, Radio, Checkbox, Form, Input, message } from 'antd';
 import QRCode from 'qrcode'
 import { useState } from 'react';
 type LayoutType = Parameters<typeof Form>[0]['layout'];
@@ -11,22 +10,17 @@ const FormCollect = () => {
     const onFinish = (values) => {
         // 用字符串来存储
         let code_str = '';
-        console.log('Success:', values);
         for (const key in values) {
             code_str += `${key}=${values[key]}`
         }
-        console.log(code_str)
-
         QRCode.toDataURL(code_str, function (err, url) {
             setQr_code_src(url)
             console.log(url)
         })
-        // 生成二维码
-
     };
 
     const onFinishFailed = (errorInfo) => {
-        console.log('Failed:', errorInfo);
+        message.error(`信息填写不全！！`)
     };
 
     const QrCodeComp = () => {

@@ -24,11 +24,9 @@ const FormCollect = () => {
     };
 
     const QrCodeComp = () => {
-        return <div style={{
-
-        }}>
-            <img src={qr_code_src} alt="" />
-        </div>
+        return <>
+            {qr_code_src && <img src={qr_code_src} alt="" />}
+        </>
     }
     return (
         <div style={{
@@ -138,12 +136,12 @@ const FormCollect = () => {
                     </Button>
                 </Form.Item>
             </Form>
-            <div className="qr-code" style={{
+            {qr_code_src && <div className="qr-code" style={{
                 display: 'flex',
                 justifyContent: 'center'
             }}>
                 {<QrCodeComp />}
-            </div>
+            </div>}
         </div>
 
     );

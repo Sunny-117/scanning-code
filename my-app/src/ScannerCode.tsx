@@ -5,11 +5,8 @@ var segs = [
     { data: '0123456', mode: 'numeric' }
 ]
 
-QRCode.toDataURL(segs, function (err, url) {
-    QRCode.toString(url, function (err, string) {
-        if (err) throw err
-        console.log(string)
-    })
+QRCode.toDataURL('https://www.taobao.com/?a=1&b=2', function (err, url) {
+    console.log(url)
 })
 
 
